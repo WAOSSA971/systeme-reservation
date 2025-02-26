@@ -35,6 +35,29 @@ function initTabEvents() {
   });
 }
 
+// Fonction pour initialiser les boutons d'action
+function initActionButtons() {
+  // Nouveau Client
+  document.querySelectorAll('button').forEach(button => {
+    if (button.textContent.trim() === 'Nouveau Client') {
+      button.addEventListener('click', function() {
+        showClientForm();
+      });
+    }
+    else if (button.textContent.trim() === 'Nouvelle Réservation') {
+      button.addEventListener('click', function() {
+        showReservationForm();
+      });
+    }
+    else if (button.textContent.trim() === 'Enregistrer Paiement') {
+      button.addEventListener('click', function() {
+        const clientId = document.getElementById('client-id')?.textContent.split(':')[1]?.trim();
+        showPaiementForm(clientId);
+      });
+    }
+  });
+}
+
 function initClientDetailButtons() {
   document.querySelectorAll('.detail-client').forEach(button => {
     button.addEventListener('click', function() {
