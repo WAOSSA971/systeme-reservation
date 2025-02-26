@@ -50,6 +50,20 @@ function initOtherButtons() {
   buttons.forEach(button => {
     button.addEventListener('click', function() {
       alert('Cette fonctionnalité serait implémentée dans la version complète.');
+
+  // Bouton "Nouveau Client"
+  const btnNouveauClient = document.querySelector('button:contains("Nouveau Client")');
+  if (btnNouveauClient) {
+    btnNouveauClient.removeEventListener('click', showDefaultAlert);
+    btnNouveauClient.addEventListener('click', function() {
+      showClientForm();
+    });
+  }
+  
+  // Bouton "Nouvelle Réservation"
+  const btnNouvelleReservation = document.querySelector('button:contains("Nouvelle Réservation")');
+  if (btnNouvelleReservation) {
+    btnNouvelleReservation.removeEventListener('
     });
   });
 }
