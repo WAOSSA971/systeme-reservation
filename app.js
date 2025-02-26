@@ -2,6 +2,8 @@
 document.addEventListener('DOMContentLoaded', function() {
   // Remplir les tableaux avec les données
   renderClientsTable();
+  // Réinitialiser les boutons d'action après avoir rendu la table
+initActionButtons();
   renderReservationsTable();
   renderPaiementsTable();
   
@@ -17,7 +19,25 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   
   // Initialiser les autres boutons
-  initOtherButtons();
+    function initOtherButtons() {
+  // Tous les boutons autres que les onglets et les détails clients
+  const buttons = document.querySelectorAll('button:not(.detail-client):not(#btn-retour)');
+  buttons.forEach(button => {
+    const text = button.textContent.trim();
+    
+    // Ne pas ajouter d'événement si c'est un des boutons spéciaux
+    if (text !== 'Nouveau Client' && 
+        text !== 'Nouvelle Réservation' && 
+        text !== 'Enregistrer Paiement') {
+      button.addEventListener('click', function() {
+        alert('Cette fonctionnalité serait implémentée dans la version complète.');
+      });
+    }
+  });
+  
+  // Initialiser les boutons d'action
+  initActionButtons();
+}
 });
 
 // Fonctions d'initialisation
